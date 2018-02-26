@@ -29,7 +29,6 @@ class ImageSlider extends Component {
 
 	render() {
 		const wrapperStyle = {
-			// backgroundImage: `url(${imageUrl})`,
 			backgroundPosition: 'center',
 			backgroundSize: 'cover',
 			backgroundRepeat: 'no-repeat'
@@ -46,7 +45,7 @@ class ImageSlider extends Component {
 					      </div>
 					      <div className="data">
 					        <div className="content">
-					          <a href="#" className="button">Read more</a>
+					          <a href="{data.title}" className="button">Read more</a>
 					        </div>
 					      </div>
 					    </div>
