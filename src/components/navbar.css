@@ -13,7 +13,6 @@ nav ul li {
   display: inline-block;
 }
 nav ul li a {
-  font-family:"Open Sans";
   color: rgba(0, 35, 34, 0.6);
   font-size: 15px;
   text-decoration: none;
@@ -22,7 +21,8 @@ li a:hover {
   transition-duration: 300ms;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
 }
-li a:hover ~ p {
+li a:hover ~ p.menu-title {
+  visibility: visible;
   transform: translateY(0);
 }
 li a {
@@ -36,10 +36,60 @@ li a {
   display: block;
   padding-bottom: 35px;
 }
-p {
+p.desc-text {
+  font-weight: bold;
+  color: #515151
+}
+li.pull-right i {
   width: 90px;
+  height: 90px;
+  padding-left: 70px;
+  margin-right: 0;
+  line-height: 93px;
+  display: block;
+  padding-bottom: 35px;
+}
+li.pull-right p.desc-text {
+  width: 90px;
+  height: 90px;
+  padding-left: 0;
+  margin-right: 70px;
+  line-height: 93px;
+  display: block;
+  padding-bottom: 35px;
+}
+li.pull-left i {
+  width: 90px;
+  height: 90px;
+  padding-left: 70px;
+  margin-right: 0;
+  line-height: 93px;
+  display: block;
+  padding-bottom: 35px;
+}
+li.pull-left p.desc-text {
+  width: 90px;
+  height: 90px;
+  margin-right: 125px;
+  padding-right: 10px;
+  line-height: 93px;
+  display: block;
+  padding-bottom: 35px;
+}
+p.menu-title {
+  width: 90px;
+  visibility: hidden;
   margin-left: 15px;
   margin-top: 25px;
   transform: translateY(calc(70px + 1em));
   transition: transform 0.3s;
+}
+.image-cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 30px;
+  object-fit: cover;
+  object-position: center right;
 }
