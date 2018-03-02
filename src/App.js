@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import ImageSlider from './components/images_slider';
+import GameCollection from './components/games_collection';
 import Navbar from './components/navbar';
+import MainMenu from './components/main_menu';
 
 const GAMES = [
   { title: 'Tomb Raider', imageUrl: 'http://www.oxpal.com/wp-content/uploads/2014/08/tomb_raider_survivor_born_-_cover.jpg' },
@@ -18,11 +19,26 @@ const GAMES = [
   { title: 'Mass Effect 3', imageUrl: 'http://www.oxpal.com/wp-content/uploads/2014/08/mass_effect_3_-_cover.jpg' },
 ];
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isMenuClicked: false,
+    };
+    this.handleMenuClick = this.handleMenuClick.bind(this);
+  }
+  handleMenuClick() {
+    this.setState({ isMenuClicked: !this.state.isMenuClicked });
+  }
   render() {
     return (
-      <div className="App">
-        <ImageSlider games={GAMES}/>
-        <Navbar />
+      <div>
+        {
+          !this.state.isMenuClicked ?
+          <MainMenu onMenuClicked={this.handleMenuClick}/> :
+          <GameCollection games={GAMES} />
+        }
+        <Navbar isMenuClicked={this.state.isMenuClicked}/>
       </div>
     );
   }
