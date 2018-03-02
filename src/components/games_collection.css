@@ -1,0 +1,33 @@
+.row {
+  max-width: 1366px;
+  padding-top: 10%;
+  margin: 0 auto 0;
+}
+
+.game-cover {
+  float: left;
+  padding: 0 1.7rem;
+  width: 50%;
+}
+
+.game-cover p.game-title {
+  transform: translateY(calc(70px + 1em));
+  transition: transform 0.3s;
+  width: 100px;
+  margin: 2em auto 1em;
+  text-align: center;
+  font-size: 12px;
+  color: #4A4A4A;
+  line-height: 1;
+  position: relative;
+  font-weight: 700;
+}
+
+.game-cover:hover img {
+  transition-duration: 300ms;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+}
+
+.game-cover:hover p.game-title {
+  transform: translateY(0);
+}
