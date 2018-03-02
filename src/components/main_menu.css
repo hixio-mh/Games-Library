@@ -1,0 +1,40 @@
+.navbar {
+  overflow: hidden;
+  background: transparent;
+  width: 100%;
+  border: none;
+  padding-top: 15px;
+}
+.main-menu {
+  bottom: 50%;
+}
+nav ul {
+  text-align:center;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  color: rgba(0, 35, 34, 0.6);
+  font-size: 15px;
+  text-decoration: none;
+}
+li a:hover {
+  transition-duration: 300ms;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+}
+li a:hover ~ p.menu-title {
+  visibility: visible;
+  transform: translateY(0);
+}
+li a {
+  background: #ffffff;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.2);
+  width: 90px;
+  height: 90px;
+  margin-left: 15px;
+  line-height: 110px;
+  border-radius: 50%;
+  display: block;
+  padding-bottom: 35px;
+}
