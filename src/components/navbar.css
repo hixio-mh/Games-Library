@@ -1,31 +1,31 @@
-.navbar {
+.bottom-navbar {
   overflow: hidden;
   background: transparent;
-  bottom: 50px;
+  /* bottom: 50px; */
   width: 100%;
   border: none;
   padding-top: 15px;
 }
-nav ul {
+nav.bottom-navbar ul {
   text-align:center;
 }
-nav ul li {
+nav.bottom-navbar ul li {
   display: inline-block;
 }
-nav ul li a {
+nav.bottom-navbar ul li a {
   color: rgba(0, 35, 34, 0.6);
   font-size: 15px;
   text-decoration: none;
 }
-li a:hover {
+.bottom-navbar li a:hover {
   transition-duration: 300ms;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
 }
-li a:hover ~ p.menu-title {
+.bottom-navbar li a:hover ~ p.menu-title {
   visibility: visible;
   transform: translateY(0);
 }
-li a {
+.bottom-navbar li a {
   background: #ffffff;
   box-shadow: 0 0 1px 0 rgba(0,0,0,0.2);
   width: 90px;
@@ -36,45 +36,45 @@ li a {
   display: block;
   padding-bottom: 35px;
 }
-p.desc-text {
+.bottom-navbar li p.desc-text {
   font-weight: bold;
   color: #515151
 }
-li.pull-right i {
+.bottom-navbar li.pull-right i {
   width: 90px;
   height: 90px;
   padding-left: 70px;
   margin-right: 0;
   line-height: 93px;
   display: block;
-  padding-bottom: 35px;
+  padding-bottom: 145px;
 }
-li.pull-right p.desc-text {
+.bottom-navbar li.pull-right p.desc-text {
   width: 90px;
   height: 90px;
   padding-left: 0;
   margin-right: 70px;
   line-height: 93px;
   display: block;
-  padding-bottom: 35px;
+  padding-bottom: 145px;
 }
-li.pull-left i {
+.bottom-navbar li.pull-left i {
   width: 90px;
   height: 90px;
   padding-left: 70px;
   margin-right: 0;
   line-height: 93px;
   display: block;
-  padding-bottom: 35px;
+  padding-bottom: 145px;
 }
-li.pull-left p.desc-text {
+.bottom-navbar li.pull-left p.desc-text {
   width: 90px;
   height: 90px;
-  margin-right: 125px;
+  margin-right: 79px;
   padding-right: 10px;
   line-height: 93px;
   display: block;
-  padding-bottom: 35px;
+  padding-bottom: 145px;
 }
 p.menu-title {
   width: 90px;

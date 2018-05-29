@@ -1,0 +1,28 @@
+nav.action-navbar {
+  background-color:#fefefe;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+nav.action-navbar li {
+  display: inline-block;
+  margin-right: 10px;
+  padding-top: 15px;
+  display: block;
+}
+nav.action-navbar ul li a {
+  color: rgba(0, 35, 34, 0.6);
+  text-decoration: none;
+}
+nav.action-navbar li i {
+  width: 25px;
+  height: 25px;
+  background: #000;
+  color: #fefefe;
+  font-weight: bolder;
+  padding-left: 6.3px;
+  margin-right: 2px;
+  display: inline-block;
+  line-height: 25px;
+  border-radius: 50%;
+}
