@@ -1,0 +1,13 @@
+.header-navbar {
+  background-color:#fefefe;
+  padding-top: 25px;
+  padding-bottom: 2px;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.header-navbar p {
+  font-size: 40px;
+  padding-left: 100px;
+}
