@@ -1,4 +1,4 @@
-.navbar {
+.main-navbar {
   overflow: hidden;
   background: transparent;
   width: 100%;
@@ -8,26 +8,26 @@
 .main-menu {
   bottom: 50%;
 }
-nav ul {
+nav.main-navbar ul {
   text-align:center;
 }
-nav ul li {
+nav.main-navbar ul li {
   display: inline-block;
 }
-nav ul li a {
+nav.main-navbar ul li a {
   color: rgba(0, 35, 34, 0.6);
   font-size: 15px;
   text-decoration: none;
 }
-li a:hover {
+.main-navbar li a:hover {
   transition-duration: 300ms;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
 }
-li a:hover ~ p.menu-title {
+.main-navbar li a:hover ~ p.menu-title {
   visibility: visible;
   transform: translateY(0);
 }
-li a {
+.main-navbar li a {
   background: #ffffff;
   box-shadow: 0 0 1px 0 rgba(0,0,0,0.2);
   width: 90px;
