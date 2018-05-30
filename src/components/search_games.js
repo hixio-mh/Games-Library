@@ -4,8 +4,8 @@ import NavbarAction from './navbar_action';
 
 import './search_games.css';
 
-{/*This component isn't completed yet, i created it as a static render
-based on the dummy data :) */}
+// This component isn't completed yet, i created it as a static render
+// based on the dummy data :)
 class SearchGames extends Component {
   constructor(props) {
 		super(props);
