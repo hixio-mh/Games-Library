@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 import './navbar_action.css';
 
 class NavbarAction extends Component {
-	constructor() {
-		super();
-
-		this.state = {
-			isfilterActive: false
-		};
-		this.onHandleFilter = this.onHandleFilter.bind(this);
-	}
-	onHandleFilter(e) {
+	onHandleFilter = (e) => {
 		e.preventDefault();
-		this.props.onHandleFilter();
+    this.props.dispatch({ type: 'FILTER_CLICKED' });
 	}
 	render() {
 		let isFiltered = this.props.isfilterActive ? 'Back' : 'Filters';
@@ -27,7 +20,7 @@ class NavbarAction extends Component {
 								<i className="fa fa-circle-thin" aria-hidden="true"></i> { isFiltered }
 							</a>
 						</li>
-						<li className="pull-left"><Link to="#" onClick={() => {this.props.navHistory.history.goBack()}}><i className="fa fa-times" aria-hidden="true"></i> OK</Link></li>
+						<li className="pull-left"><Link to="#" onClick={() => {this.props.history.goBack()}}><i className="fa fa-times" aria-hidden="true"></i> OK</Link></li>
 				  </ul>
         </div>
 	    </nav>
@@ -35,4 +28,10 @@ class NavbarAction extends Component {
 	}
 }
 
-export default NavbarAction;
+function mapStateToProps(state) {
+  return {
+    isfilterActive: state.actionReducer.isfilterActive,
+  };
+}
+
+export default connect(mapStateToProps)(NavbarAction);

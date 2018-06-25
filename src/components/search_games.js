@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import Header from './header';
 import NavbarAction from './navbar_action';
 
@@ -7,35 +8,19 @@ import './search_games.css';
 // This component isn't completed yet, i created it as a static render
 // based on the dummy data :)
 class SearchGames extends Component {
-  constructor(props) {
-		super(props);
-
-		this.state = {
-			isfilterActive: false
-		};
-		this.handleFilter = this.handleFilter.bind(this);
-  }
-
-	handleFilter() {
-    this.setState(prevState => ({
-      isfilterActive: !prevState.isfilterActive
-    }));
-  }
-
   componentDidMount() {
-    this.props.onHandleMenuClick();
+    this.props.dispatch({ type: 'MENU_CLICKED' });
   }
-
+  
   componentWillUnmount() {
-    this.props.onHandleMenuClick();
+    this.props.dispatch({ type: 'MENU_CLICKED' });
   }
 
   render() {
-    const { onNavbarAction, games } = this.props;
-    const { isfilterActive } = this.state;
+    const { gameCollection, isfilterActive } = this.props;
     let filterOffset = isfilterActive ? 'slide-right' : 'slide-left col-md-offset-2';
     let slideIn = isfilterActive ? 'fade-in' : '';
-    const total = games.length;
+    const total = gameCollection.length;
 
     return(
       <div className="container-fluid">
@@ -53,7 +38,7 @@ class SearchGames extends Component {
                 <a href="" className="list-group-item active">
                   <span className="badge badge-count">{total}</span>
                   All
-                </a>                
+                </a>
                 {/*Create static list based on the dummy data,
                 it'll be easier when using ajax to create dynamic list*/}
                 <a href="" className="list-group-item">
@@ -74,7 +59,7 @@ class SearchGames extends Component {
           <div className={`col-md-8  ${filterOffset}`}>
             <div className="row">
             {
-              games.map((val, index) => (
+              gameCollection.map(val => (
                 <div className="cover" key={val.id}>
                   <a href="/check">
                     <img src={val.imageUrl} style={{ width: '100%' }} alt={val.title} />
@@ -87,14 +72,17 @@ class SearchGames extends Component {
         </div>
 
         <NavbarAction 
-          onNavbarAction={onNavbarAction} 
-          navHistory={this.props} 
-          onHandleFilter={this.handleFilter} 
-          isfilterActive={isfilterActive}
-        />
+          {...this.props} />
       </div>
     );
   }
 }
 
-export default SearchGames;
+function mapStateToProps(state) {
+  return {
+    isfilterActive: state.actionReducer.isfilterActive,
+    gameCollection: state.gamesCollection,
+  };
+}
+
+export default connect(mapStateToProps)(SearchGames);

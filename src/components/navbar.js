@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Clock from 'react-live-clock';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 import './navbar.css';
 
@@ -42,4 +43,11 @@ class Navbar extends Component {
 	}
 }
 
-export default Navbar;
+
+function mapStateToProps(state) {
+  return {
+    isMenuClicked: state.appReducer.isMenuClicked,
+  };
+}
+
+export default connect(mapStateToProps)(Navbar);

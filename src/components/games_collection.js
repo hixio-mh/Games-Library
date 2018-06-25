@@ -1,50 +1,47 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { connect } from "react-redux";
 
 import Navbar from './navbar';
 import './games_collection.css';
 
-class GamesCollection extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      slideOpts: {
-        autoplay: true,
-        autoplaySpeed: 5000,
-        centerMode: true,
-        dots: false,
-        focusOnSelect: false,
-        infinite: true,
-        initialSlide: 0,
-        responsive: [
-          { breakpoint: 768, settings: { slidesToShow: 2 } },
-          { breakpoint: 1024, settings: { slidesToShow: 4 } },
-          { breakpoint: 1366, settings: { slidesToShow: 6 } },
-          { breakpoint: 10000, settings: { slidesToShow: 6 } },
-        ],
-        slidesToScroll: 1,
-        speed: 500,
-      },
-    };
-  }
+class GameCollection extends Component {
+  state = {
+    slideOpts: {
+      autoplay: true,
+      autoplaySpeed: 5000,
+      centerMode: true,
+      dots: false,
+      focusOnSelect: false,
+      infinite: true,
+      initialSlide: 0,
+      responsive: [
+        { breakpoint: 768, settings: { slidesToShow: 2 } },
+        { breakpoint: 1024, settings: { slidesToShow: 4 } },
+        { breakpoint: 1366, settings: { slidesToShow: 6 } },
+        { breakpoint: 10000, settings: { slidesToShow: 6 } },
+      ],
+      slidesToScroll: 1,
+      speed: 500,
+    },
+  };
 
   componentDidMount() {
-    this.props.onHandleMenuClick();
+    this.props.dispatch({ type: 'MENU_CLICKED' });
   }
   componentWillUnmount() {
-    this.props.onHandleMenuClick();
+    this.props.dispatch({ type: 'MENU_CLICKED' });
   }
 
   render() {
-    const { games, onMenuClick } = this.props;
+    const { gameCollection } = this.props;
 
     return (
       <React.Fragment>
         <div className="row-slider">
           <Slider {...this.state.slideOpts}>
             {
-              games.map((data) => {
+              gameCollection.map((data) => {
                 return (
                   <div className="game-cover fade-in" key={data.title}>
                     <a href="/check">
@@ -57,10 +54,16 @@ class GamesCollection extends Component {
             }
           </Slider>
         </div>
-        <Navbar isMenuClicked={onMenuClick} />
+        <Navbar />
       </React.Fragment>
     );
   }
 }
 
-export default GamesCollection;
+function mapStateToProps(state) {  
+  return {
+    gameCollection: state.gamesCollection,
+  };
+}
+
+export default connect(mapStateToProps)(GameCollection);
